@@ -96,7 +96,7 @@ if os.environ.get('DATABASE_URL'):
     if 'OPTIONS' in DATABASES['default']:
         if 'ssl-mode' in DATABASES['default']['OPTIONS']:
             DATABASES['default']['OPTIONS'].pop('ssl-mode')
-            DATABASES['default']['OPTIONS']['ssl'] = True
+            DATABASES['default']['OPTIONS']['ssl'] = {}
 
 CORS_ALLOW_ALL_ORIGINS = True
 
