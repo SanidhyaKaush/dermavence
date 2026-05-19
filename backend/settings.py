@@ -93,6 +93,10 @@ DATABASES = {
 
 if os.environ.get('DATABASE_URL'):
     DATABASES['default'] = dj_database_url.config(conn_max_age=600)
+    if 'OPTIONS' in DATABASES['default']:
+        if 'ssl-mode' in DATABASES['default']['OPTIONS']:
+            DATABASES['default']['OPTIONS'].pop('ssl-mode')
+            DATABASES['default']['OPTIONS']['ssl'] = True
 
 CORS_ALLOW_ALL_ORIGINS = True
 
