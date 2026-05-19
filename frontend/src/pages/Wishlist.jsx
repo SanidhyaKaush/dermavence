@@ -1,0 +1,86 @@
+import React, { useContext } from 'react';
+import { Link } from 'react-router-dom';
+import { AuthContext } from '../context/AuthContext';
+import { Trash2, Heart, ShoppingCart, ArrowLeft } from 'lucide-react';
+import productImg from '../assets/product.png';
+
+const Wishlist = () => {
+  const { wishlist, removeFromWishlist, addToCart } = useContext(AuthContext);
+
+  const handleMoveToCart = async (wishlistItemId, productId) => {
+    // Add to cart first
+    const added = await addToCart(productId);
+    if (added) {
+      // Remove from wishlist
+      await removeFromWishlist(wishlistItemId);
+      alert('Product moved to cart successfully!');
+    } else {
+      alert('Failed to move product to cart.');
+    }
+  };
+
+  if (wishlist.length === 0) {
+    return (
+      <div className="container">
+        <div className="empty-state">
+          <Heart size={48} style={{ color: 'var(--primary-color)', marginBottom: '15px' }} />
+          <h3>Your Wishlist is Empty</h3>
+          <p>Tap the heart icon on any products to save them for later.</p>
+          <Link to="/" className="btn-primary">
+            <ArrowLeft size={16} style={{ marginRight: '8px', verticalAlign: 'middle' }} />
+            Explore Products
+          </Link>
+        </div>
+      </div>
+    );
+  }
+
+  return (
+    <div className="container" style={{ minHeight: '80vh', paddingBottom: '40px' }}>
+      <h1 className="page-title">My Wishlist</h1>
+      
+      <div className="wishlist-grid-container">
+        <div className="products-grid">
+          {wishlist.map((item) => (
+            <div key={item.id} className="product-card">
+              <div className="product-image">
+                <img 
+                  src={item.product.image_url || productImg} 
+                  alt={item.product.name} 
+                  style={{ height: '80%', objectFit: 'contain' }}
+                />
+              </div>
+              
+              <div className="product-info">
+                <h3 className="product-name">{item.product.name}</h3>
+                <div className="product-price">${parseFloat(item.product.price).toFixed(2)}</div>
+                
+                <div className="product-actions">
+                  {/* Move to Cart */}
+                  <button 
+                    className="btn-primary btn-full" 
+                    onClick={() => handleMoveToCart(item.id, item.product.id)}
+                  >
+                    <ShoppingCart size={18} style={{ marginRight: '8px', verticalAlign: 'middle' }} />
+                    Move to Cart
+                  </button>
+                  
+                  {/* Remove Button */}
+                  <button 
+                    className="btn-icon" 
+                    onClick={() => removeFromWishlist(item.id)}
+                    title="Remove from Wishlist"
+                  >
+                    <Trash2 size={18} />
+                  </button>
+                </div>
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+    </div>
+  );
+};
+
+export default Wishlist;
