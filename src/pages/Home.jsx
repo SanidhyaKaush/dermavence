@@ -33,7 +33,7 @@ const Home = () => {
   const location = useLocation();
   const [searchParams, setSearchParams] = useSearchParams();
   
-  // Parse query directly from location.search to guarantee update propagation
+  
   const searchQuery = new URLSearchParams(location.search).get('search') || '';
 
   const setSearchQuery = (val) => {
@@ -51,7 +51,7 @@ const Home = () => {
   const [showContact, setShowContact] = useState(false);
   const [selectedCategory, setSelectedCategory] = useState('All');
 
-  // Open products grid if search is active in URL
+  
   useEffect(() => {
     if (searchQuery) {
       setShowProducts(true);
@@ -97,7 +97,7 @@ const Home = () => {
   });
   return (
     <div>
-      {/* Scrolling Announcement Ticker */}
+      
       <div className="ticker-banner">
         <div className="ticker-wrap">
           <div className="ticker-item">Dermavence <span className="flicker-text">coming soon</span> to deliver values</div>
@@ -105,7 +105,7 @@ const Home = () => {
           <div className="ticker-item">Dermavence <span className="flicker-text">coming soon</span> to deliver values</div>
           <div className="ticker-item">✦</div>
           
-          {/* Duplicated for seamless loop */}
+          
           <div className="ticker-item">Dermavence <span className="flicker-text">coming soon</span> to deliver values</div>
           <div className="ticker-item">✦</div>
           <div className="ticker-item">Dermavence <span className="flicker-text">coming soon</span> to deliver values</div>
@@ -114,7 +114,7 @@ const Home = () => {
       </div>
 
       <div className="container">
-        {/* Carousel */}
+        
         <div className="carousel-container">
           <div key={`content-${currentSlide}`} className={`carousel-content carousel-animate-${slideDirection}`}>
             <div className="carousel-tag">{product.tag || 'FEATURED'}</div>
@@ -172,7 +172,7 @@ const Home = () => {
           </div>
         </div>
 
-        {/* Toggle Products Button */}
+        
         <div className="btn-center-container">
           <button 
             className="btn-primary btn-toggle-products" 
@@ -182,12 +182,12 @@ const Home = () => {
           </button>
         </div>
 
-        {/* Products Grid */}
+        
         {showProducts && (
           <section className="products-section" id="products-catalog-section">
             <h2 className="section-title">All Products</h2>
             
-            {/* Search & Filters */}
+            
             <div className="products-filter-container">
               <div className="search-wrapper">
                 <input 
@@ -246,14 +246,14 @@ const Home = () => {
           </section>
         )}
 
-        {/* Why Choose Dermavence Section */}
+        
         <section className="why-choose-section">
           <h2 className="section-title">Why Choose Dermavence</h2>
           <p className="section-subtitle">
             Experience advanced dermatological care crafted for optimal efficacy, purity, and clinical excellence.
           </p>
 
-          {/* Desktop/Tablet Option Picker Style */}
+          
           <div className="features-option-picker">
             <div className="features-options-grid">
               {WHY_CHOOSE_POINTS.map((item, idx) => {
@@ -295,7 +295,7 @@ const Home = () => {
             )}
           </div>
 
-          {/* Mobile Accordion Dropdown Style */}
+          
           <div className="features-accordion">
             {WHY_CHOOSE_POINTS.map((item, idx) => {
               const IconComponent = item.icon;
@@ -323,7 +323,7 @@ const Home = () => {
           </div>
         </section>
 
-        {/* Contact Section */}
+        
         <section className="contact-section" style={{ marginBottom: '60px' }}>
           <h2 className="section-title" style={{ marginBottom: '10px' }}>Contact Our Skincare Experts</h2>
           <p style={{ textAlign: 'center', color: 'var(--text-muted)', maxWidth: '600px', margin: '0 auto 20px' }}>
@@ -342,7 +342,7 @@ const Home = () => {
           {showContact && (
             <div className="contact-modal-overlay" onClick={() => setShowContact(false)}>
               <div className="contact-modal-content" onClick={(e) => e.stopPropagation()}>
-                {/* Close Button */}
+                
                 <button className="contact-modal-close-btn" onClick={() => setShowContact(false)} title="Close contact card">
                   <span style={{ fontSize: '24px', lineHeight: '1', display: 'block', transform: 'translateY(-1px)' }}>&times;</span>
                 </button>
@@ -351,7 +351,7 @@ const Home = () => {
                 <p className="contact-modal-subtitle">Connect with us on WhatsApp, Email or Instagram.</p>
                 
                 <div className="contact-list">
-                  {/* WhatsApp Row 1 */}
+                  
                   <div className="contact-list-item">
                     <div className="contact-item-info">
                       <span className="contact-item-label">WhatsApp</span>
@@ -362,7 +362,7 @@ const Home = () => {
                     </a>
                   </div>
                   
-                  {/* WhatsApp Row 2 */}
+                  
                   <div className="contact-list-item">
                     <div className="contact-item-info">
                       <span className="contact-item-label">WhatsApp</span>
@@ -373,7 +373,7 @@ const Home = () => {
                     </a>
                   </div>
                   
-                  {/* Email Row */}
+                  
                   <div className="contact-list-item">
                     <div className="contact-item-info">
                       <span className="contact-item-label">Email</span>
@@ -384,7 +384,7 @@ const Home = () => {
                     </a>
                   </div>
                   
-                  {/* Instagram Row */}
+                  
                   <div className="contact-list-item">
                     <div className="contact-item-info">
                       <span className="contact-item-label">Instagram</span>
@@ -396,7 +396,7 @@ const Home = () => {
                   </div>
                 </div>
                 
-                {/* Copy Utilities Row */}
+                
                 <div className="contact-copy-row">
                   <button 
                     className="contact-copy-btn" 

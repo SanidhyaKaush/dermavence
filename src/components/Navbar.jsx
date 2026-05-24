@@ -16,13 +16,13 @@ const Navbar = () => {
   const searchRef = useRef(null);
   const inputRef = useRef(null);
 
-  // Apply theme to document documentElement
+  
   useEffect(() => {
     document.documentElement.setAttribute('data-theme', theme);
     localStorage.setItem('theme', theme);
   }, [theme]);
 
-  // Close search suggestions and collapse search bar when clicking outside
+  
   useEffect(() => {
     const handleClickOutside = (event) => {
       if (searchRef.current && !searchRef.current.contains(event.target)) {
@@ -44,7 +44,7 @@ const Navbar = () => {
     setIsExpanded(prev => {
       const nextState = !prev;
       if (nextState) {
-        // Auto-focus input when expanding
+        
         setTimeout(() => {
           if (inputRef.current) {
             inputRef.current.focus();
@@ -58,7 +58,7 @@ const Navbar = () => {
     });
   };
 
-  // Find matching products
+  
   const suggestions = searchVal.trim()
     ? products.filter(p => 
         p.name.toLowerCase().includes(searchVal.toLowerCase()) ||
@@ -84,7 +84,7 @@ const Navbar = () => {
           <span>Dermavence Pharma</span>
         </Link>
         <div className="navbar-links">
-          {/* Expandable Search Option beside Wishlist */}
+          
           <div className="navbar-search-wrapper" ref={searchRef}>
             <div className={`navbar-search-expandable ${isExpanded ? 'expanded' : ''}`}>
               <button className="navbar-search-toggle-btn" onClick={toggleSearch} title="Search catalog">
@@ -104,7 +104,7 @@ const Navbar = () => {
               />
             </div>
 
-            {/* Suggestions Dropdown */}
+            
             {isExpanded && showDropdown && searchVal.trim() && (
               <div className="navbar-search-dropdown">
                 {suggestions.length > 0 ? (

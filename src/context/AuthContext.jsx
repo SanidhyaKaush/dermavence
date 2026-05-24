@@ -37,7 +37,7 @@ export const AuthProvider = ({ children }) => {
     }
   }, [toast]);
 
-  // Helper to map DB image name to local React assets
+  
   const mapProductImage = (prod) => {
     if (!prod) return prod;
     return {
@@ -56,7 +56,7 @@ export const AuthProvider = ({ children }) => {
     product: mapProductImage(item.product)
   });
 
-  // Fetch all products from MySQL on mount
+  
   const fetchProducts = async () => {
     try {
       const res = await fetch(`${API_BASE_URL}/products/`);
@@ -70,7 +70,7 @@ export const AuthProvider = ({ children }) => {
     }
   };
 
-  // Fetch cart from backend
+  
   const fetchCart = async (authToken) => {
     const activeToken = authToken || token;
     if (!activeToken) return;
@@ -91,7 +91,7 @@ export const AuthProvider = ({ children }) => {
     }
   };
 
-  // Fetch wishlist from backend
+  
   const fetchWishlist = async (authToken) => {
     const activeToken = authToken || token;
     if (!activeToken) return;
@@ -112,7 +112,7 @@ export const AuthProvider = ({ children }) => {
     }
   };
 
-  // Check for active session on load
+  
   useEffect(() => {
     const initSession = async () => {
       await fetchProducts();
@@ -120,7 +120,7 @@ export const AuthProvider = ({ children }) => {
       const storedToken = localStorage.getItem('access_token');
       if (storedToken) {
         try {
-          // Verify token against backend
+          
           const res = await fetch(`${API_BASE_URL}/auth/user/`, {
             headers: {
               'Authorization': `Token ${storedToken}`,
@@ -132,11 +132,11 @@ export const AuthProvider = ({ children }) => {
             const userData = await res.json();
             setUser(userData);
             setToken(storedToken);
-            // Fetch cart and wishlist
+            
             await fetchCart(storedToken);
             await fetchWishlist(storedToken);
           } else {
-            // Token invalid or expired
+            
             localStorage.removeItem('access_token');
           }
         } catch (err) {
@@ -165,7 +165,7 @@ export const AuthProvider = ({ children }) => {
         setToken(userToken);
         localStorage.setItem('access_token', userToken);
 
-        // Fetch user's cart and wishlist from DB
+        
         await fetchCart(userToken);
         await fetchWishlist(userToken);
         return true;

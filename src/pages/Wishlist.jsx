@@ -8,10 +8,10 @@ const Wishlist = () => {
   const { wishlist, removeFromWishlist, addToCart, showToast } = useContext(AuthContext);
 
   const handleMoveToCart = async (wishlistItemId, productId) => {
-    // Add to cart first
+    
     const added = await addToCart(productId);
     if (added) {
-      // Remove from wishlist
+      
       await removeFromWishlist(wishlistItemId);
       showToast('Product moved to cart successfully!', 'success');
     } else {
@@ -56,7 +56,7 @@ const Wishlist = () => {
                 <div className="product-price">₹xxxxx</div>
                 
                 <div className="product-actions">
-                  {/* Move to Cart */}
+                  
                   <button 
                     className="btn-primary btn-full" 
                     onClick={() => handleMoveToCart(item.id, item.product.id)}
@@ -65,7 +65,7 @@ const Wishlist = () => {
                     Move to Cart
                   </button>
                   
-                  {/* Remove Button */}
+                  
                   <button 
                     className="btn-icon" 
                     onClick={() => removeFromWishlist(item.id)}

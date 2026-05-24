@@ -18,7 +18,7 @@ const Signup = () => {
     }
     const success = await register(username, email, password);
     if (success) {
-      // automatically login after signup
+      
       await login(username, password);
       navigate('/');
     } else {

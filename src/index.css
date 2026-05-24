@@ -57,7 +57,7 @@ button {
   outline: none;
 }
 
-/* Utilities */
+
 .container {
   max-width: 1200px;
   margin: 0 auto;
@@ -91,7 +91,7 @@ button {
   background-color: var(--surface-hover);
 }
 
-/* Navbar */
+
 .navbar {
   background-color: var(--navbar-bg);
   backdrop-filter: blur(12px);
@@ -188,14 +188,14 @@ button {
   box-shadow: 0 0 12px rgba(107, 33, 33, 0.6);
 }
 
-/* Carousel */
+
 .carousel-container {
   background-color: var(--surface-color);
   border: 1px solid rgba(255, 255, 255, 0.08);
   border-radius: 15px;
   margin: 40px auto;
   max-width: 1200px;
-  min-height: 400px; /* Reduced to make it rectangular */
+  min-height: 400px; 
   display: flex;
   position: relative;
   overflow: hidden;
@@ -248,7 +248,7 @@ button {
 
 .carousel-content {
   flex: 1.2;
-  padding: 30px 30px 30px 60px; /* Adjusted padding to fit rectangular layout */
+  padding: 30px 30px 30px 60px; 
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -315,7 +315,7 @@ button {
 
 .carousel-image-container img {
   max-width: 100%;
-  max-height: 340px; /* Reduced to fit rectangular container height */
+  max-height: 340px; 
   object-fit: contain;
   border-radius: 10px;
   box-shadow: 0 5px 15px rgba(0,0,0,0.3);
@@ -392,7 +392,7 @@ button {
   }
 }
 
-/* Forms */
+
 .auth-container {
   max-width: 400px;
   margin: 80px auto;
@@ -450,7 +450,7 @@ button {
   color: var(--primary-color);
 }
 
-/* Products Grid */
+
 .products-section {
   padding: 60px 0;
 }
@@ -536,7 +536,7 @@ button {
   flex: 1;
 }
 
-/* Modal */
+
 .modal-overlay {
   position: fixed;
   top: 0;
@@ -574,7 +574,7 @@ button {
   justify-content: center;
 }
 
-/* Cart & Wishlist Pages */
+
 .page-title {
   font-size: 2.2rem;
   margin-top: 40px;
@@ -763,7 +763,7 @@ button {
   margin-bottom: 30px;
 }
 
-/* Wishlist styles */
+
 .wishlist-grid-container {
   margin-bottom: 60px;
 }
@@ -782,7 +782,7 @@ button {
   text-align: center;
 }
 
-/* Contact Section */
+
 .contact-section {
   padding: 60px 40px;
   margin-top: 60px;
@@ -863,7 +863,7 @@ button {
   box-shadow: 0 8px 20px rgba(107, 33, 33, 0.4);
 }
 
-/* Navbar Dropdown Menu */
+
 .navbar-user-dropdown {
   position: relative;
   display: inline-block;
@@ -875,7 +875,7 @@ button {
   left: 50%;
   transform: translateX(-50%);
   top: 100%;
-  padding-top: 12px; /* hover buffer space */
+  padding-top: 12px; 
   z-index: 110;
 }
 
@@ -884,13 +884,13 @@ button {
   background-color: var(--surface-color);
   border: 1px solid var(--border-color);
   border-radius: 10px;
-  min-width: 140px; /* Slightly wider to fit 'Light Mode' toggle nicely */
+  min-width: 140px; 
   box-shadow: 0 10px 30px rgba(0, 0, 0, 0.6);
   display: flex;
   flex-direction: column;
 }
 
-/* Caret pointer */
+
 .dropdown-content::before {
   content: '';
   position: absolute;
@@ -939,7 +939,7 @@ button {
   color: #ffffff;
 }
 
-/* Why Choose Dermavence Section */
+
 .why-choose-section {
   padding: 60px 40px;
   margin-top: 60px;
@@ -957,7 +957,7 @@ button {
   font-size: 1.05rem;
 }
 
-/* Desktop Option Picker */
+
 .features-option-picker {
   display: block;
 }
@@ -1051,7 +1051,7 @@ button {
   line-height: 1.7;
 }
 
-/* Mobile Accordion */
+
 .features-accordion {
   display: none;
   flex-direction: column;
@@ -1134,7 +1134,7 @@ button {
   to { opacity: 1; transform: translateY(0); }
 }
 
-/* Media Queries for Picker/Accordion */
+
 @media (max-width: 900px) {
   .features-options-grid {
     grid-template-columns: repeat(2, 1fr);
@@ -1183,7 +1183,7 @@ button {
     transform: translateY(0);
   }
 }
-/* Search & Filter Options */
+
 .products-filter-container {
   display: flex;
   flex-direction: column;
@@ -1248,7 +1248,7 @@ button {
   box-shadow: 0 4px 15px rgba(107, 33, 33, 0.4);
 }
 
-/* Product Details Page */
+
 .product-details-layout {
   display: grid;
   grid-template-columns: 1.1fr 1fr;
@@ -1585,7 +1585,7 @@ button {
   }
 }
 
-/* Checkout Page */
+
 .checkout-layout-grid {
   display: grid;
   grid-template-columns: 1.4fr 1fr;
@@ -1801,7 +1801,7 @@ button {
   }
 }
 
-/* Navbar Expandable Search Option */
+
 .navbar-search-wrapper {
   position: relative;
   margin-right: 15px;
@@ -1868,7 +1868,7 @@ button {
 .navbar-search-dropdown {
   position: absolute;
   top: calc(100% + 10px);
-  right: 0; /* Align right to match expanding from the right side */
+  right: 0; 
   width: 320px;
   background: rgba(18, 18, 18, 0.95);
   backdrop-filter: blur(16px);
@@ -1963,7 +1963,7 @@ button {
   text-align: center;
 }
 
-/* Scrolling Ticker Announcement Banner */
+
 .ticker-banner {
   width: 100%;
   overflow: hidden;
@@ -1991,7 +1991,7 @@ button {
   text-transform: uppercase;
 }
 
-/* Seamless infinite scroll left-to-right */
+
 @keyframes tickerScrollLeftToRight {
   0% {
     transform: translate3d(-50%, 0, 0);
@@ -2001,7 +2001,7 @@ button {
   }
 }
 
-/* Flickering Neon Text Effect */
+
 .flicker-text {
   font-weight: 700;
   color: #ff4d4d;
@@ -2024,7 +2024,7 @@ button {
   }
 }
 
-/* Light Theme Specific Components Overrides */
+
 [data-theme="light"] input,
 [data-theme="light"] select,
 [data-theme="light"] textarea {
@@ -2120,7 +2120,7 @@ button {
   border-color: rgba(199, 60, 60, 0.2) !important;
 }
 
-/* Contact Modal Overlay Styles */
+
 .contact-modal-overlay {
   position: fixed;
   top: 0;
@@ -2336,7 +2336,7 @@ button {
   border-color: rgba(0, 0, 0, 0.3);
 }
 
-/* Light Mode overrides for Why Choose Us and Contact sections */
+
 [data-theme="light"] .why-choose-section,
 [data-theme="light"] .contact-section {
   background: #ffffff !important;
@@ -2400,7 +2400,7 @@ button {
 
 
 
-/* Toast Notifications */
+
 .toast-notification {
   position: fixed;
   bottom: 30px;

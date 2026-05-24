@@ -9,10 +9,10 @@ const Cart = () => {
   const navigate = useNavigate();
   const [showCheckoutSuccess, setShowCheckoutSuccess] = useState(false);
 
-  // Compute pricing
+  
   const subtotal = cart.reduce((acc, item) => acc + (parseFloat(item.product.price) * item.quantity), 0);
   const shipping = subtotal > 50 || subtotal === 0 ? 0 : 5.99;
-  const tax = subtotal * 0.08; // 8% sales tax
+  const tax = subtotal * 0.08; 
   const total = subtotal + shipping + tax;
 
   const handleQtyChange = async (itemId, currentQty, increment) => {
@@ -65,7 +65,7 @@ const Cart = () => {
           <h1 className="page-title">Shopping Cart</h1>
           
           <div className="cart-layout">
-            {/* Cart Items List */}
+            
             <div className="cart-items">
               {cart.map((item) => (
                 <div key={item.id} className="cart-item">
@@ -81,7 +81,7 @@ const Cart = () => {
                   </div>
                   
                   <div className="cart-item-actions">
-                    {/* Quantity Selector */}
+                    
                     <div className="quantity-selector">
                       <button 
                         className="quantity-btn" 
@@ -98,12 +98,12 @@ const Cart = () => {
                       </button>
                     </div>
                     
-                    {/* Item Subtotal Price */}
+                    
                     <div className="cart-item-price">
                       ₹xxxxx
                     </div>
                     
-                    {/* Remove Button */}
+                    
                     <button 
                       className="btn-remove" 
                       onClick={() => removeFromCart(item.id)}
@@ -116,7 +116,7 @@ const Cart = () => {
               ))}
             </div>
 
-            {/* Summary Sidebar */}
+            
             <div className="cart-summary">
               <h2 className="summary-title">Order Summary</h2>
               

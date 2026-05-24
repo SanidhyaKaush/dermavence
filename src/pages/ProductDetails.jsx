@@ -20,13 +20,13 @@ const ProductDetails = () => {
     );
   }
 
-  // Reviews State
+  
   const [reviews, setReviews] = useState([]);
   const [reviewerName, setReviewerName] = useState('');
   const [rating, setRating] = useState(5);
   const [comment, setComment] = useState('');
   
-  // Load reviews from backend API
+  
   useEffect(() => {
     const fetchReviews = async () => {
       try {
@@ -62,7 +62,7 @@ const ProductDetails = () => {
       if (res.ok) {
         const data = await res.json();
         setReviews(prev => [data, ...prev]);
-        // Reset Form
+        
         setReviewerName('');
         setRating(5);
         setComment('');
@@ -98,14 +98,14 @@ const ProductDetails = () => {
     }
   };
 
-  // Calculate Average Rating
+  
   const avgRating = reviews.length > 0
     ? (reviews.reduce((acc, r) => acc + r.rating, 0) / reviews.length).toFixed(1)
     : '0.0';
 
   return (
     <div className="container" style={{ paddingBottom: '60px' }}>
-      {/* Back Link */}
+      
       <div style={{ margin: '20px 0' }}>
         <Link to="/" className="btn-toggle-contact" style={{ display: 'inline-flex', alignItems: 'center', gap: '8px', padding: '8px 20px', fontSize: '0.9rem', textDecoration: 'none' }}>
           <ArrowLeft size={16} /> Back to Shop
@@ -113,7 +113,7 @@ const ProductDetails = () => {
       </div>
 
       <div className="product-details-layout">
-        {/* Left Column: Image & Badges */}
+        
         <div className="product-details-image-side">
           <div className="product-details-image-box">
             <img src={product.image} alt={product.name} />
@@ -144,12 +144,12 @@ const ProductDetails = () => {
           </div>
         </div>
 
-        {/* Right Column: Title, Specs, CTA */}
+        
         <div className="product-details-info-side">
           <span className="product-category-tag">{product.category}</span>
           <h1 className="product-detail-title">{product.name}</h1>
           
-          {/* Rating Summary */}
+          
           <div className="product-rating-summary">
             <div className="stars-row">
               {[1, 2, 3, 4, 5].map((star) => (
@@ -189,7 +189,7 @@ const ProductDetails = () => {
           
           <p className="product-detail-desc">{product.description}</p>
 
-          {/* Key Ingredients Badges */}
+          
           <div style={{ marginBottom: '25px' }}>
             <h4 style={{ fontSize: '0.95rem', color: 'var(--text-muted)', marginBottom: '10px' }}>Active Ingredients</h4>
             <div className="carousel-ingredients">
@@ -199,7 +199,7 @@ const ProductDetails = () => {
             </div>
           </div>
 
-          {/* Clinical Formulation Parameters */}
+          
           <div className="clinical-specs-card">
             <div className="spec-row">
               <span className="spec-label">Target Skin Type:</span>
@@ -215,7 +215,7 @@ const ProductDetails = () => {
             </div>
           </div>
 
-          {/* CTAs */}
+          
           <div className="details-cta-row">
             <button className="btn-primary" style={{ flex: 2, padding: '14px', display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '8px' }} onClick={() => handleAction('cart')}>
               <ShoppingCart size={18} /> Add to Cart
@@ -227,15 +227,15 @@ const ProductDetails = () => {
         </div>
       </div>
 
-      {/* Bottom Block: Full Ingredients & Reviews */}
+      
       <div className="details-bottom-section">
-        {/* Full Ingredients Panel */}
+        
         <div className="full-ingredients-box">
           <h3>Full Ingredients List</h3>
           <p>{product.fullIngredients}</p>
         </div>
 
-        {/* Reviews Panel */}
+        
         <div className="reviews-section-wrapper">
           <div className="reviews-header">
             <h3>Customer Reviews</h3>
@@ -246,7 +246,7 @@ const ProductDetails = () => {
           </div>
 
           <div className="reviews-layout-grid">
-            {/* Reviews List */}
+            
             <div className="reviews-list">
               {reviews.length > 0 ? (
                 reviews.map((rev, idx) => (
@@ -276,7 +276,7 @@ const ProductDetails = () => {
               )}
             </div>
 
-            {/* Review Submission Form */}
+            
             <div className="review-form-container">
               <h4>Write a Review</h4>
               <form onSubmit={handleAddReview} className="review-submit-form">

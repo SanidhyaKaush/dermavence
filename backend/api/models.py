@@ -10,10 +10,10 @@ class Product(models.Model):
     skinType = models.CharField(max_length=255)
     suitability = models.CharField(max_length=255)
     directions = models.TextField()
-    ingredients = models.JSONField(default=list)  # Storing list of active ingredients
+    ingredients = models.JSONField(default=list)  
     fullIngredients = models.TextField()
     tag = models.CharField(max_length=255)
-    image_name = models.CharField(max_length=100)  # Maps to React assets, e.g., 'vitc.png'
+    image_name = models.CharField(max_length=100)  
     fda_notice = models.CharField(max_length=255, blank=True, default='')
     created_at = models.DateTimeField(auto_now_add=True)
 
@@ -22,7 +22,7 @@ class Product(models.Model):
 
 class Review(models.Model):
     product = models.ForeignKey(Product, on_delete=models.CASCADE, related_name='reviews')
-    name = models.CharField(max_length=255)  # Can be user's name or custom review name
+    name = models.CharField(max_length=255)  
     rating = models.IntegerField(validators=[MinValueValidator(1), MaxValueValidator(5)])
     comment = models.TextField()
     date = models.DateField(auto_now_add=True)

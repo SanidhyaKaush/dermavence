@@ -43,7 +43,7 @@ class LoginView(APIView):
         if not username or not password:
             return Response({'error': 'Please provide username and password'}, status=status.HTTP_400_BAD_REQUEST)
 
-        # Handle case-insensitive username lookup
+        
         try:
             user_obj = User.objects.get(username__iexact=username)
             username = user_obj.username
